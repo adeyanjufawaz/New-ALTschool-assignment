@@ -1,0 +1,71 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: aqua;
+}
+.text__section{
+    background-color: darkgoldenrod;
+    min-height:15rem;
+    width: 50rem;
+    padding: 2rem .4rem;
+    border-radius: .7rem;
+    outline: none;
+    border: none;
+    display: block;
+    margin: 0 auto;
+}
+.replacement__section{
+    background-color:cadetblue;
+    min-height:7rem;
+    width: 50rem;
+    padding: 2rem .4rem;
+    border-radius: .7rem;
+    outline: none;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    margin-top:3rem;
+}
+.app--btn{
+    background-color: brown;
+    color:#fff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    outline: 2px solid red;
+    outline-offset: -5px;
+    padding: 1rem 3.6rem;
+    border-radius: 300px;
+} */
+
+.number__box{
+    width:200px;
+    position: relative;
+}
+#phone{
+    height: 40px;
+    padding: 0 17px;
+    outline: none;
+}
+img{
+    position: absolute;
+    height:90%;
+    width:45px;
+    right:0;
+    top:5%;
+}
+.etisalat{
+    display: none;
+}
+.mtn{
+    display: none;
+}
+.airtel{
+    display: none;
+}
+.glo{
+    display: none;
+}
