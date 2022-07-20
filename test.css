@@ -49,6 +49,7 @@ body{
     height: 40px;
     padding: 0 17px;
     outline: none;
+    background-color: transparent;
 }
 img{
     position: absolute;

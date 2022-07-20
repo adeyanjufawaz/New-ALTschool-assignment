@@ -31,31 +31,31 @@ function callNumber () {
 
             // <-------  All MTN Numbers    ----->
             case phoneNumber.startsWith("0803") || checkSlicedpart == "803":
-                etisalat()
+                mtn()
                 break;
             case phoneNumber.startsWith("0703") || checkSlicedpart == "703":
-                etisalat()
+                mtn()
                 break;
             case phoneNumber.startsWith("0903") || checkSlicedpart == "903":
-                etisalat()
+                mtn()
                 break;
             case phoneNumber.startsWith("0806") || checkSlicedpart == "806":
-                etisalat()
+                mtn()
                 break;
             case phoneNumber.startsWith("0706") || checkSlicedpart == "706":
-                etisalat()
+                mtn()
                 break;
             case phoneNumber.startsWith("0813") || checkSlicedpart == "813":
-                etisalat()
+                mtn()
                 break;
             case phoneNumber.startsWith("0810") || checkSlicedpart == "810":
-                etisalat()
+                mtn()
                 break;
             case phoneNumber.startsWith("0814") || checkSlicedpart == "814":
-                etisalat()
+                mtn()
                 break;
             case phoneNumber.startsWith("0816") || checkSlicedpart == "816":
-                etisalat()
+                mtn()
                 break;
 
             // <-------  All GLO Numbers    ----->
