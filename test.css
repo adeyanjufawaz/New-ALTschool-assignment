@@ -53,20 +53,11 @@ body{
 }
 img{
     position: absolute;
-    height:90%;
-    width:45px;
+    height:80%;
+    width:35px;
     right:0;
-    top:5%;
+    top:10%;
 }
-.etisalat{
-    display: none;
-}
-.mtn{
-    display: none;
-}
-.airtel{
-    display: none;
-}
-.glo{
+.network{
     display: none;
 }
