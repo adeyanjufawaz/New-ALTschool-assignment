@@ -45,8 +45,9 @@
 // Invalid phone number function
         function invalidNumber () {
             displayNothing()
-            phoneNumberError()
             disableKeys()
+            phoneNumberError()
+            
         }
 // <------------------------------------------------------------------------------->
 
