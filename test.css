@@ -51,13 +51,21 @@ body{
     outline: none;
     background-color: transparent;
 }
-img{
+img {
     position: absolute;
-    height:80%;
-    width:35px;
-    right:0;
-    top:10%;
+    height: 80%;
+    width: 35px;
+    right: 0;
+    top: 10%;
 }
 .network{
     display: none;
+}
+.warn{
+    color: red;
+    font-size: 1.2rem;
+    display: inline;
+    font-weight: 400;
+    display: none;
+    margin-top: 0;
 }
