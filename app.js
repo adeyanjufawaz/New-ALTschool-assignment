@@ -15,17 +15,20 @@
 // This makes the keys on the keyboard disabled except the Backspace key
         function disableKeys () {
             document.onkeydown =  (e) => {
-                if (e.key !== "Backspace" || e.key !== "Enter" ) {
-                    if (e.key === "Backspace") {
+                if (e.key !== "Backspace" || e.key !== "Enter" 
+                ||e.which === 13 || e.which === 13) {
+                    if (e.key === "Backspace" || e.which === "Backspace") {
                         enableKeys()
                         return true
                     }
                     return false
                 }    
             }
-            document.addEventListener('keypress',(e) => {
-                if (e.key !== "Backspace" || e.key !== "Enter" ) {
-                    if (e.key === "Backspace") {
+
+            document.addEventListener('keypress', (e) => {
+                if (e.key !== "Backspace" || e.key !== "Enter" 
+                ||e.which === 13 || e.which === 13) {
+                    if (e.key === "Backspace" || e.which === "Backspace") {
                         enableKeys()
                         return true
                     }
