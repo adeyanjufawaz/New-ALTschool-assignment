@@ -191,7 +191,7 @@ let myInterval = setInterval(callNumber)
 
                     
                         default:
-                            
+                            invalidNumber()
                             break;
                         }
         } else{
