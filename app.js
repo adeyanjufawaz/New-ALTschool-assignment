@@ -12,35 +12,6 @@
             document.querySelector(".glo").style.display = 'none';
         }
 
-// This makes the keys on the keyboard disabled except the Backspace key
-        function disableKeys () {
-            document.onkeydown =  (e) => {
-                if (e.key !== "Backspace" || e.key !== "Enter" ) {
-                    if (e.key === "Backspace" || e.which === "Backspace") {
-                        enableKeys()
-                        return true
-                    }
-                    return false
-                }    
-            }
-
-            document.addEventListener('keypress', (e) => {
-                if (e.key !== "Backspace" || e.key !== "Enter" ) {
-                    if (e.key === "Backspace" || e.which === "Backspace") {
-                        e.preventDefault()
-                        enableKeys()
-                        return true
-                    }
-                    return false
-                }    
-            })
-
-            
-        }
-
-// This makes the keys on the keyboard enabled
-        function enableKeys () { document.onkeydown = (e) =>  true }
-// <------------------------------------------------------------------------------->
 
 // Numbers must start with only "0" or country code
     function startOfPhoneNumberError () {
@@ -58,32 +29,34 @@
 // Invalid phone number function
         function invalidNumber () {
             displayNothing()
-            disableKeys()
             phoneNumberError()
             
         }
 // <------------------------------------------------------------------------------->
 
 
-let myInterval = setInterval(callNumber)  
+let myInterval = setInterval(validatePhoneNumber)  
 
 // This is the main engine of this program
 
-    function callNumber () {
+function validatePhoneNumber () {
         const number = document.getElementById("phone").value;
         let phoneNumber = `${number}`
         const checkSlicedpart = phoneNumber.slice(4,7);
 
-        // Phone numbers must start with either 0 or +
+        // Phone numbers must start with either "0" or "+""
         if (phoneNumber !== "" && phoneNumber[0] !== "0" && phoneNumber[0] !== "+") {
-            disableKeys()
-            phoneNumber = ""
             startOfPhoneNumberError()
         }else{
             clearPhoneNumberError()
         }
             
 
+        
+        /***************************
+          Whenever the phone number starts with "0" and contains 11 digits, display the network
+           provider else display nothing
+        ****************************/
 
         if ( number.length === 11 && phoneNumber.startsWith('0')) {
             
@@ -208,6 +181,11 @@ let myInterval = setInterval(callNumber)
                             invalidNumber()
                             break;
                         }
+
+/***************************
+    Whenever the phone number starts with "+" and contains 14 digits, display the network
+        provider else display nothing
+****************************/
         } else if ( number.length === 14 && phoneNumber.startsWith('+')) {
             
             switch (true) {
@@ -335,19 +313,15 @@ let myInterval = setInterval(callNumber)
             displayNothing()
         }
 
-    // This prevents users from entering more than 11 digits if it does not start with XYZ
-                if (phoneNumber.startsWith("0") && phoneNumber.length > 10) {
-                    disableKeys()
-                }
+// This prevents users from entering more than 11 digits if number starts with "0" or 
+// more than 14 if it starts with country code
+                if (phoneNumber.startsWith("0") && phoneNumber.length > 11) {
+                    invalidNumber()
+                } else if (phoneNumber.startsWith("+") && phoneNumber.length > 14) {
+                    invalidNumber()
+                }                
 
-        // This prevents users from entering more than 14 digits if it starts with XYZ
-                if (phoneNumber.startsWith("+") && phoneNumber.length > 13) {
-                    disableKeys()
-                }
-
-                
-
-        //// Check if the number contains an aphabet 
+//// Check if the number contains an aphabet 
 
                 const allAphabets = /[\D]/gi
                 const checkForAlphabet = allAphabets.test(phoneNumber)  
@@ -355,10 +329,11 @@ let myInterval = setInterval(callNumber)
                 
                 // This creates an array from the phoneNumber Array
                         let phoneNumberToArray = Array.from(phoneNumber)
-                // This cut all phone numbers arr except the first number inputed, e.g [+2348221822] ==> 2348221822
+                // This cut all phone numbers arr except the first number inputed, 
+                //    e.g [+2348221822] ==> 2348221822
                         let cuttedPhoneNumberArray = phoneNumberToArray.slice(-1 * (phoneNumberToArray.length - 1))
                 
-        // This if stament allows users to add just numbers to phone number input section
+// This if stament allows users to add just numbers to phone number input section
                 if (phoneNumber !== "" ) {
 
                     if (phoneNumber.length > 1 && phoneNumber[0] == "+") {
@@ -369,11 +344,10 @@ let myInterval = setInterval(callNumber)
                                     invalidNumber()
                                 }
                             }
-                        } else if (phoneNumber[0] == "0") {
-                            if (checkForAlphabet == true) {
-                                invalidNumber()
-                            }
-                            
-                        }
+                    } else if (phoneNumber[0] == "0") {
+                        if (checkForAlphabet == true) {
+                            invalidNumber()
+                        }        
+                    }
                 }
-            }
+}
